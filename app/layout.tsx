@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
+import { font_heading, font_text } from "./utils/fonts";
 
-const inter = Inter({ subsets: ["latin"] });
+import "./globals.css";
+import Navbar from "./components/nav/Navbar";
+import { Provider } from "./utils/Provider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,8 +16,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="pl">
+  
+      <body className={`${font_heading} ${font_text}  font-text `} >
+        <Provider>
+
+      <Navbar/>
+        {children}
+        <p className="font-heading">sprawdxmy jak to dziala </p>
+        </Provider>
+        </body>
     </html>
   );
 }
