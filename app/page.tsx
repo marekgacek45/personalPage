@@ -1,7 +1,13 @@
+import HeroHeader from "./components/HeroHeader";
 
 
 export default function Home() {
   return (
-   <h1>test</h1>
+   <>
+   <main >
+
+   <HeroHeader/>
+   </main>
+   </>
   );
 }
