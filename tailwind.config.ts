@@ -81,7 +81,9 @@ const config: Config = {
 					from: { opacity: '0' },
 					to: { opacity: '1' },
 				},
-				
+			},
+			boxShadow: {
+				'custom': '10px 10px 0 rgba(0, 0, 0, 0.4)',
 			},
 		},
 	},

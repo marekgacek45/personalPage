@@ -4,6 +4,7 @@ import { font_heading, font_text } from "./utils/fonts";
 import "./globals.css";
 import Navbar from "./components/nav/Navbar";
 import { Provider } from "./utils/Provider";
+import Footer from "./components/Footer";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,7 +24,7 @@ export default function RootLayout({
 
       <Navbar/>
         {children}
-        <p className="font-heading">sprawdxmy jak to dziala </p>
+       <Footer/>
         </Provider>
         </body>
     </html>
