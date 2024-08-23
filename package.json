@@ -9,11 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@sanity/image-url": "^1.0.2",
+    "@sanity/vision": "^3.55.0",
+    "@vercel/speed-insights": "^1.0.12",
     "hamburger-react": "^2.5.1",
     "next": "14.2.6",
+    "next-sanity": "^9.4.7",
     "next-themes": "^0.3.0",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "sanity": "^3.55.0",
+    "styled-components": "^6.1.12"
   },
   "devDependencies": {
     "@types/node": "^20",

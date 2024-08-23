@@ -3,8 +3,8 @@
 import { useState, useEffect } from 'react'
 import HeroHeader from './components/HeroHeader'
 
-import myPhoto from '../public/assets/my-photo.webp'
-import myPhotoPixel from '../public/assets/my-photo--pixel.webp'
+import myPhoto from '../../public/assets/my-photo.webp'
+import myPhotoPixel from '../../public/assets/my-photo--pixel.webp'
 import Image from 'next/image'
 import LinkBtn from './components/base/LinkBtn'
 import Link from 'next/link'
@@ -110,23 +110,18 @@ export default function Home() {
 						<div className='bg-bgDark-400 p-2'>
 							<span className=' text-xl font-action font-bold  text-fontLight uppercase '>youtube</span>
 						</div>
-						<video autoPlay={true}
-				loop={true}
-				muted={true}
-				playsInline={true}
-				poster='/assets/hero-poster.webp'
-                    
-                    className="w-full object-cover lg:min-h-[590px] hidden md:block"
-                >
-                    <source
-                        src="/assets/movies/yt--desktop.mp4"
-                        type="video/mp4"
-                    />
+						<video
+							autoPlay={true}
+							loop={true}
+							muted={true}
+							playsInline={true}
+							poster='/assets/hero-poster.webp'
+							className='w-full object-cover lg:min-h-[590px] hidden md:block'>
+							<source src='/assets/movies/yt--desktop.mp4' type='video/mp4' />
+							Twoja przeglądarka nie obsługuje odtwarzacza wideo.
+						</video>
 
-                    Twoja przeglądarka nie obsługuje odtwarzacza wideo.
-                </video>
-
-                {/* <img
+						{/* <img
                     src="/assets/movies/yt--mobile.webp"
                     alt="youtube Marekgacekdev"
                     loading="lazy"
@@ -136,9 +131,7 @@ export default function Home() {
 				</div>
 			</section>
 			{/* contact */}
-			<section id='kontakt'>
-kontakt
-			</section>
+			<section id='kontakt'>kontakt</section>
 		</main>
 	)
 }
