@@ -1,4 +1,3 @@
-
 import React from 'react'
 import LinkBtn from './base/LinkBtn'
 
@@ -6,10 +5,10 @@ const HeroHeader = () => {
 	return (
 		<header className=' bg-center bg-cover md:bg-none section mt-[72px] h-[calc(100vh-72px)] relative'>
 			<video
-				autoplay='true'
-				loop='true'
-				muted='true'
-				playsinline='true'
+				autoPlay={true}
+				loop={true}
+				muted={true}
+				playsInline={true}
 				poster='/assets/hero-poster.webp'
 				className='hidden md:block absolute inset-0 w-full h-full object-cover'>
 				<source src='/assets/hero.webm' type='video/webm' />
@@ -27,8 +26,8 @@ const HeroHeader = () => {
 					Wszystko czego potrzebujesz, aby zablysnac w sieci
 				</h2>
 				<div className='flex flex-col md:flex-row gap-6 md:gap-12 mt-4'>
-					<LinkBtn href='/portfolio' >Portfolio</LinkBtn>
-					<LinkBtn href='/blog' >Blog</LinkBtn>
+					<LinkBtn href='/portfolio'>Portfolio</LinkBtn>
+					<LinkBtn href='/blog'>Blog</LinkBtn>
 				</div>
 			</div>
 		</header>
