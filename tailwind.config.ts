@@ -16,6 +16,7 @@ const config: Config = {
 			fontFamily: {
 				heading: ['var(--font-heading)', 'sans-serif'],
 				text: ['var(--font-text)', 'monospace'],
+				accent: ['var(--font-accent)', 'monospace'],
 			},
 
 			colors: {

@@ -1,5 +1,5 @@
-'use client'
-
+// 'use client'
+import type { Metadata } from 'next'
 import { useState, useEffect } from 'react'
 import HeroHeader from '../components/HeroHeader'
 
@@ -9,16 +9,13 @@ import Image from 'next/image'
 import LinkBtn from '../components/base/LinkBtn'
 import Link from 'next/link'
 
+export const metadata: Metadata = {
+	title: 'Marek Gacek - Nowoczesne Strony Internetowe',
+	description: 'Przestań tracić czas na sztampowe strony. Wybierz nowoczesne rozwiązania, które sprawią, że Twoja strona będzie wyjątkowa. Przekonaj się sam!',
+}
+
 export default function Home() {
-	const [currentImage, setCurrentImage] = useState(myPhoto)
 
-	const handleMouseEnter = () => {
-		setCurrentImage(myPhotoPixel)
-	}
-
-	const handleMouseLeave = () => {
-		setCurrentImage(myPhoto)
-	}
 
 	return (
 		<>
@@ -30,14 +27,14 @@ export default function Home() {
 						<div className='flex justify-center items-center xl:h-auto mt-6 mb-12 xl:w-1/2 lg:pr-10 2xl:pr-16'>
 							<div className='flex flex-col relative'>
 								<Image
-									src={currentImage}
+									src={myPhoto}
 									alt='zdjęcie przedstawiające mój wizerunek'
 									className='h-full object-cover shadow-custom '
 									loading='lazy'
 									width='580'
 									height='580'
-									onMouseEnter={handleMouseEnter}
-									onMouseLeave={handleMouseLeave}
+									// onMouseEnter={handleMouseEnter}
+									// onMouseLeave={handleMouseLeave}
 								/>
 							</div>
 						</div>
