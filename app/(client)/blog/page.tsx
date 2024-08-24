@@ -3,6 +3,7 @@ import { client } from '@/sanity/lib/client'
 import { urlFor } from '@/sanity/lib/image'
 import { get } from 'http'
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 
 async function getPosts() {
@@ -26,11 +27,11 @@ export default async function Blog() {
 		<>
 			<main className='mt-[72px]'>
 				{posts.map((post, index) => (
-					<div key={index} className='mt-12'>
+					<Link href={`/blog/${post.slug}`} key={index} className='mt-12'>
 						<h2 className='text-3xl font-heading'>{post.title}</h2>
 						<Image src={urlFor(post.thumbnail).url() } alt={post.title} className='w-24 rounded-lg ' width={100} height={100} />
 						<p className='mt-4 text-xl'>{post.excerpt}</p>
-					</div>
+					</Link>
 				))}
 			</main>
 		</>
