@@ -1,6 +1,7 @@
 
 
 import { SpeedInsights } from '@vercel/speed-insights/next'
+import { Analytics } from "@vercel/analytics/react"
 import { font_heading, font_text } from '../utils/fonts'
 
 import './globals.css'
@@ -26,6 +27,7 @@ export default function RootLayout({
 					<Footer />
 				</Provider>
 				<SpeedInsights />
+				<Analytics />
 			</body>
 		</html>
 	)

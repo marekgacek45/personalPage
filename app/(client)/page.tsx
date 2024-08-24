@@ -22,7 +22,7 @@ export default function Home() {
 			<HeroHeader />
 			<main>
 				{/* about */}
-				<section className='bg-bgLight-400 dark:bg-bgDark-400  pt-24 pb-12'>
+				{/* <section className='bg-bgLight-400 dark:bg-bgDark-400  pt-24 pb-12'>
 					<div className='flex flex-col h-full mx-auto px-6 sm:px-12 md:px-24 lg:px-12 2xl:px-24 xl:flex-row max-w-screen-2xl'>
 						<div className='flex justify-center items-center xl:h-auto mt-6 mb-12 xl:w-1/2 lg:pr-10 2xl:pr-16'>
 							<div className='flex flex-col relative'>
@@ -65,9 +65,9 @@ export default function Home() {
 							</p>
 						</div>
 					</div>
-				</section>
+				</section> */}
 				{/* blog */}
-				<section className='bg-bgLight-400 dark:bg-bgDark-400 pt-12 pb-24 lg:py-24'>
+				{/* <section className='bg-bgLight-400 dark:bg-bgDark-400 pt-12 pb-24 lg:py-24'>
 					<div className='max-w-screen-2xl mx-auto text-center px-4 sm:px-12 md:px-24 lg:px-12 2xl:px-24'>
 						<h2 className='lg:text-left text-3xl xs:text-4xl md:text-5xl xl:text-6xl uppercase font-heading text-fontDark dark:text-fontLight text-center'>
 							Zanurz sie w lekturze i odkryj ciekawostki z cyber swiata
@@ -89,9 +89,9 @@ export default function Home() {
 
 						<LinkBtn href='/blog'>Zobacz wszystkie artykuły</LinkBtn>
 					</div>
-				</section>
+				</section> */}
 				{/* youTube */}
-				<section className=' grid gap-24 lg:gap-0 lg:grid-cols-2 px-6 xl:px-12 py-16 lg:py-24 '>
+				{/* <section className=' grid gap-24 lg:gap-0 lg:grid-cols-2 px-6 xl:px-12 py-16 lg:py-24 '>
 					<div className='flex flex-col justify-center items-center gap-12 lg:mr-12 xl:mx-24 2xl:mx-32 '>
 						<h2 className='lg:text-left text-3xl xs:text-4xl md:text-5xl xl:text-6xl uppercase font-heading text-fontDark dark:text-fontLight text-center'>
 							Zobacz mnie w akcji na YouTube!
@@ -119,17 +119,12 @@ export default function Home() {
 								Twoja przeglądarka nie obsługuje odtwarzacza wideo.
 							</video>
 
-							{/* <img
-                    src="/assets/movies/yt--mobile.webp"
-                    alt="youtube Marekgacekdev"
-                    loading="lazy"
-                    class="w-full object-cover lg:min-h-[690px] md:hidden"
-                /> */}
+						
 						</div>
 					</div>
-				</section>
+				</section> */}
 				{/* contact */}
-				<section id='kontakt'>kontakt</section>
+				{/* <section id='kontakt'>kontakt</section> */}
 			</main>
 		</>
 	)
