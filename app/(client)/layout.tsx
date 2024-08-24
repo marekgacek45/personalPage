@@ -3,9 +3,9 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 import { font_heading, font_text } from '../utils/fonts'
 
 import './globals.css'
-import Navbar from './components/nav/Navbar'
+import Navbar from '../components/nav/Navbar'
 import { Provider } from '../utils/Provider'
-import Footer from './components/Footer'
+import Footer from '../components/Footer'
 
 export const metadata: Metadata = {
 	title: 'Create Next App',
@@ -22,9 +22,12 @@ export default function RootLayout({
 			<body className={`${font_heading} ${font_text}  font-text `}>
 				<Provider>
 					<Navbar />
+
 					{children}
+
 					<Footer />
 				</Provider>
+				<SpeedInsights />
 			</body>
 		</html>
 	)

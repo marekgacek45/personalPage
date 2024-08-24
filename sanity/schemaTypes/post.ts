@@ -43,8 +43,8 @@ export const post = {
 		},
 
 		{
-			name: 'body',
-			title: 'Body',
+			name: 'content',
+			title: 'Content',
 			type: 'array',
 			of: [
 				{ type: 'block' },

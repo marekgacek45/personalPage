@@ -3,7 +3,7 @@ import LinkBtn from './base/LinkBtn'
 
 const HeroHeader = () => {
 	return (
-		<header className=' bg-center bg-cover md:bg-none section mt-[72px] h-[calc(100vh-72px)] relative'>
+		<header className=' bg-center bg-cover md:bg-none section  h-[calc(100vh-72px)] relative'>
 			<video
 				autoPlay={true}
 				loop={true}

@@ -4,7 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import ThemeToggler from './ThemeToggler'
 
-import logo from '../../../../public/assets/logo.webp'
+import logo from '../../../public/assets/logo.webp'
 import Image from 'next/image'
 import NavLink from './NavLink'
 
