@@ -1,5 +1,6 @@
 import React from 'react'
 import LinkBtn from '@/app/components/base/LinkBtn'
+import Image from 'next/image'
 
 const HeroHeader = () => {
 	return (
@@ -10,10 +11,18 @@ const HeroHeader = () => {
 				muted={true}
 				playsInline={true}
 				poster='/assets/hero-poster.webp'
-				className='block absolute inset-0 w-full h-full object-cover'>
+				className=' absolute inset-0 w-full h-full object-cover hidden md:block'>
 				<source src='/assets/hero.webm' type='video/webm' />
 				Twoja przeglądarka nie obsługuje odtwarzacza wideo.
 			</video>
+
+			<Image
+				src='/assets/hero-poster.webp'
+				alt='hero-poster'
+				className='absolute inset-0 w-full h-full object-cover md:hidden'
+				width={526}
+				height={300}
+			/>
 
 			<div className='bg-black absolute top-0 right-0 left-0 bottom-0 opacity-50'></div>
 

@@ -6,6 +6,7 @@ import Card from '../Card'
 import Text from '../base/Text'
 import LinkBtn from '../base/LinkBtn'
 import ColorSpan from '../base/ColorSpan'
+import Image from 'next/image'
 
 const YouTube = () => {
 	return (
@@ -26,7 +27,12 @@ const YouTube = () => {
 						Na kanale znajdziesz również praktyczne <ColorSpan secondary>wskazówki</ColorSpan> i{' '}
 						<ColorSpan>porady</ColorSpan> oparte na zdobytym doświadczeniu.
 					</Text>
-					<LinkBtn href='https://youtube.com' attributes={{target:"_blank",rel:"noreferrer nofollow"}} className='self-start'>Sprawdź</LinkBtn>
+					<LinkBtn
+						href='https://youtube.com'
+						attributes={{ target: '_blank', rel: 'noreferrer nofollow' }}
+						className='self-start'>
+						Sprawdź
+					</LinkBtn>
 				</div>
 
 				<Card title='YouTube' className='xl:w-1/2'>
@@ -36,10 +42,18 @@ const YouTube = () => {
 						muted={true}
 						playsInline={true}
 						poster='/assets/hero-poster.webp'
-						className='w-full object-cover min-h-[300px] lg:min-h-[590px] '>
+						className='w-full object-cover min-h-[300px] lg:min-h-[590px] hidden md:block'>
 						<source src='/assets/hero.webm' type='video/webm' />
 						Twoja przeglądarka nie obsługuje odtwarzacza wideo.
 					</video>
+
+					<Image
+						src='/assets/hero-poster.webp'
+						alt='hero-poster'
+						className='w-full object-cover min-h-[300px] lg:min-h-[590px] md:hidden'
+						width={526}
+						height={300}
+					/>
 				</Card>
 			</Wrapper>
 		</Section>
