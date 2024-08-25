@@ -6,6 +6,10 @@ import myPhoto from '@/public/assets/my-photo.webp'
 import myPhotoPixel from '@/public/assets/my-photo--pixel.webp'
 import Section from '@/app/components/base/Section'
 import Wrapper from '@/app/components/base/Wrapper'
+import Heading from '@/app/components/base/Heading'
+import Text from '@/app/components/base/Text'
+import ColorSpan from '@/app/components/base/ColorSpan'
+import Card from '../Card'
 
 const About = () => {
 	const [currentImage, setCurrentImage] = useState(myPhoto)
@@ -18,7 +22,7 @@ const About = () => {
 		return () => clearInterval(interval)
 	}, [])
 
-	const text = 'text-xl sm:text-2xl leading-normal'
+	const text = ''
 	const span = 'font-accent text-3xl sm:text-4xl font-semibold tracking-wide'
 	const spanEven = 'text-ownPink-400 '
 	const spanOdd = 'text-ownPurple-400 dark:text-ownYellow-400 '
@@ -37,36 +41,34 @@ const About = () => {
 						height={550}
 					/>
 				</div>
-
+				
 				{/* text */}
-				<div className='flex flex-col  gap-6 text-center xl:text-left  xl:w-1/2  text-fontDark dark:text-fontLight '>
-					<h2 className='text-4xl  sm:text-6xl uppercase font-heading '>
+				<div className='flex flex-col  gap-6  justify-center  xl:w-1/2   '>
+					<Heading>
 						Cześć,
 						<br /> mam na imię Marek
-					</h2>
+					</Heading>
 
-					<p className={text}>
-						Jestem <span className={`${span} ${spanEven} `}>programistą</span>, specjalizującym się w tworzeniu stron
-						internetowych.
-					</p>
-					<p className={text}>
+					<Text>
+						Jestem <ColorSpan>programistą</ColorSpan>, specjalizującym się w tworzeniu stron internetowych.
+					</Text>
+					<Text>
 						Walczę na całej powierzchni webowego pola, wykorzystując
-						<span className={`${span} ${spanOdd} `}> JavaScript </span>oraz
-						<span className={`${span} ${spanEven} `}> PHP </span>
+						<ColorSpan secondary> JavaScript </ColorSpan>oraz
+						<ColorSpan> PHP </ColorSpan>
 						jako swoje oręża.
-					</p>
-					<p className={text}>
+					</Text>
+					<Text>
 						W trakcie mojej edukacji ukończyłem wiele kursów min.
-						<span className={`${span} ${spanOdd} `}> Opanuj JS-Przeprogramowani </span>
+						<ColorSpan secondary> Opanuj JS-Przeprogramowani </ColorSpan>
 						czy
-						<span className={`${span} ${spanEven} `}> wtf-Maciej Korsan</span>.
-					</p>
-					<p className={text}>
+						<ColorSpan> wtf-Maciej Korsan</ColorSpan>.
+					</Text>
+					<Text>
 						Oprócz tego zdobyłem certyfikat w kursie
-						<span className={`${span} ${spanOdd} `}> FullStack </span>prowadzony przez{' '}
-						<span className={`${span} ${spanEven} `}> University of Helsinki</span>, najstarszą i największą uczelnię
-						naukową w <span className={`${span} text-blue-600`}>Finlandii</span>.
-					</p>
+						<ColorSpan secondary> FullStack </ColorSpan>prowadzony przez <ColorSpan> University of Helsinki</ColorSpan>,
+						najstarszą i największą uczelnię naukową w <ColorSpan secondary>Finlandii</ColorSpan>.
+					</Text>
 				</div>
 			</Wrapper>
 		</Section>
