@@ -36,13 +36,6 @@ export const post = {
 		},
 
 		{
-			name: 'excerpt',
-			title: 'Excerpt',
-			type: 'text',
-			validation: (Rule: Rule) => Rule.max(200).error('Maksymalnie 200 znaków'),
-		},
-
-		{
 			name: 'content',
 			title: 'Content',
 			type: 'array',
@@ -60,6 +53,6 @@ export const post = {
 				},
 			],
 		},
-		{ name: 'category', title: 'Category', type: 'array', of: [{ type: 'reference', to: { type: 'category' } }] },
+		{ name: 'categories', title: 'Categories', type: 'array', of: [{ type: 'reference', to: { type: 'category' } }] },
 	],
 }

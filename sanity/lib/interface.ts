@@ -1,12 +1,12 @@
 export interface Post {
+	_id: string
 	title: string
 	slug: string
     thumbnail: any
 	publishedAt: string
 	excerpt: string
 	body: any
-	// tags: Array<Tag>
-	_id: string
+	category: Array<Category>
 }
 
 export interface Stack{
@@ -14,4 +14,10 @@ export interface Stack{
 	title: string
 	slug: string
     image: any
+}
+
+export interface Category{
+	_id: string,
+	title: string
+	slug: string
 }
