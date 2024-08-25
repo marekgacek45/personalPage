@@ -1,8 +1,9 @@
 // 'use client'
 import type { Metadata } from 'next'
 
-import HeroHeader from '../components/HeroHeader'
-import About from '../components/home/About'
+import HeroHeader from '@/app/components/home/HeroHeader'
+import About from '@/app/components/home/About'
+import StackMarquee from '@/app/components/home/StackMarquee'
 
 export const metadata: Metadata = {
 	title: 'Marek Gacek - Nowoczesne Strony Internetowe',
@@ -16,8 +17,8 @@ export default function Home() {
 		<>
 			<HeroHeader />
 			<main>
-				{/* about */}
 				<About/>
+				<StackMarquee/>
 				{/* blog */}
 				{/* <section className='bg-bgLight-400 dark:bg-bgDark-400 pt-12 pb-24 lg:py-24'>
 					<div className='max-w-screen-2xl mx-auto text-center px-4 sm:px-12 md:px-24 lg:px-12 2xl:px-24'>

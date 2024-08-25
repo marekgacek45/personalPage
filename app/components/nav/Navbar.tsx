@@ -33,7 +33,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className='fixed top-0 left-0 right-0 py-4 px-3 xs:px-6 sm:px-12 2xl:px-0 bg-ownPurple-400 dark:bg-ownYellow-400 z-50'>
+      <nav className='fixed top-0 left-0 right-0 py-4 px-3 xs:px-6 sm:px-12 2xl:px-0 bg-ownPurple-400 dark:bg-ownYellow-400 shadow-slate-400  shadow-xl z-50 '>
         <div className='max-w-screen-2xl mx-auto flex justify-between items-center'>
           <div className='flex items-center gap-24'>
             <Link

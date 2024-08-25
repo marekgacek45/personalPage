@@ -1,5 +1,5 @@
 import React from 'react'
-import LinkBtn from './base/LinkBtn'
+import LinkBtn from '@/app/components/base/LinkBtn'
 
 const HeroHeader = () => {
 	return (

@@ -8,3 +8,10 @@ export interface Post {
 	// tags: Array<Tag>
 	_id: string
 }
+
+export interface Stack{
+	_id: string,
+	title: string
+	slug: string
+    image: any
+}
