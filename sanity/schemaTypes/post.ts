@@ -60,5 +60,6 @@ export const post = {
 				},
 			],
 		},
+		{ name: 'category', title: 'Category', type: 'array', of: [{ type: 'reference', to: { type: 'category' } }] },
 	],
 }

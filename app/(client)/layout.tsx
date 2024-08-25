@@ -2,7 +2,7 @@
 
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Analytics } from "@vercel/analytics/react"
-import { font_heading, font_text } from '../utils/fonts'
+import { font_heading, font_text,font_accent } from '../utils/fonts'
 
 import './globals.css'
 import Navbar from '../components/nav/Navbar'
@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='pl' className='scroll-smooth'>
-			<body className={`${font_heading} ${font_text}  font-text `}>
+			<body className={`${font_heading} ${font_text} ${font_accent} font-text selection:bg-ownPink-600`}>
 				<Provider>
 					<Navbar />
 
