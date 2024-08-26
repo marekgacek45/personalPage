@@ -1,4 +1,4 @@
-// 'use client'
+
 import type { Metadata } from 'next'
 
 import HeroHeader from '@/app/components/home/HeroHeader'
@@ -43,39 +43,6 @@ export default function Home() {
 						</div>
 
 						<LinkBtn href='/blog'>Zobacz wszystkie artykuły</LinkBtn>
-					</div>
-				</section> */}
-				{/* youTube */}
-				{/* <section className=' grid gap-24 lg:gap-0 lg:grid-cols-2 px-6 xl:px-12 py-16 lg:py-24 '>
-					<div className='flex flex-col justify-center items-center gap-12 lg:mr-12 xl:mx-24 2xl:mx-32 '>
-						<h2 className='lg:text-left text-3xl xs:text-4xl md:text-5xl xl:text-6xl uppercase font-heading text-fontDark dark:text-fontLight text-center'>
-							Zobacz mnie w akcji na YouTube!
-						</h2>
-						<h3 className='text-xl md:text-2xl xl:text-3xl font-text leading-relaxed text-fontDark'>
-							Zapraszam Cię na mój kanał na YouTube, gdzie możesz zobaczyć jak pracuję nad różnymi projektami, testuję
-							nowe technologie i narzędzia, oraz jak dzielę się swoimi spostrzeżeniami i doświadczeniami.
-						</h3>
-						<LinkBtn href='/'>Zobacz</LinkBtn>
-					</div>
-
-					<div>
-						<div className='shadow-custom '>
-							<div className='bg-bgDark-400 p-2'>
-								<span className=' text-xl font-action font-bold  text-fontLight uppercase '>youtube</span>
-							</div>
-							<video
-								autoPlay={true}
-								loop={true}
-								muted={true}
-								playsInline={true}
-								poster='/assets/hero-poster.webp'
-								className='w-full object-cover lg:min-h-[590px] hidden md:block'>
-								<source src='/assets/movies/yt--desktop.mp4' type='video/mp4' />
-								Twoja przeglądarka nie obsługuje odtwarzacza wideo.
-							</video>
-
-						
-						</div>
 					</div>
 				</section> */}
 				{/* contact */}

@@ -6,7 +6,7 @@ export interface Post {
 	publishedAt: string
 	excerpt: string
 	body: any
-	category: Array<Category>
+	categories: Array<Category>
 }
 
 export interface Stack{
