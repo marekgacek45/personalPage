@@ -17,7 +17,7 @@ const HeroHeader = () => {
 			</video>
 
 			<Image
-				src='/assets/hero-poster.webp'
+				src='/assets/hero--mobile.webp'
 				alt='hero-poster'
 				className='absolute inset-0 w-full h-full object-cover md:hidden'
 				width={526}

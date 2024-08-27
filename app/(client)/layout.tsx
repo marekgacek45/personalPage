@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='pl' className='scroll-smooth'>
-			<body className={`${font_heading} ${font_text} ${font_accent} font-text bg-bgLight-400 dark:bg-bgDark-400 selection:bg-ownPink-600`}>
+			<body className={`${font_heading} ${font_text} ${font_accent} font-text bg-bgLight-400 dark:bg-bgDark-600 selection:bg-ownPink-600`}>
 				<Provider>
 					<Navbar />
 

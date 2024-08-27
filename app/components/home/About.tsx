@@ -4,6 +4,10 @@ import Image from 'next/image'
 
 import myPhoto from '@/public/assets/my-photo.webp'
 import myPhotoPixel from '@/public/assets/my-photo--pixel.webp'
+
+import myPhotoMobile from '@/public/assets/my-photo--mobile.webp'
+import myPhotoPixelMobile from '@/public/assets/my-photo-pixel--mobile.webp'
+
 import Section from '@/app/components/base/Section'
 import Wrapper from '@/app/components/base/Wrapper'
 import Heading from '@/app/components/base/Heading'
@@ -13,10 +17,12 @@ import Card from '../Card'
 
 const About = () => {
 	const [currentImage, setCurrentImage] = useState(myPhoto)
+	const [currentImageMobile, setCurrentImageMobile] = useState(myPhotoMobile)
 
 	useEffect(() => {
 		const interval = setInterval(() => {
 			setCurrentImage(prevImage => (prevImage === myPhoto ? myPhotoPixel : myPhoto))
+			setCurrentImageMobile(prevImage => (prevImage === myPhotoMobile ? myPhotoPixelMobile : myPhoto))
 		}, 3000)
 
 		return () => clearInterval(interval)
@@ -35,13 +41,21 @@ const About = () => {
 					<Image
 						src={currentImage}
 						alt='zdjęcie przedstawiające mój wizerunek'
-						className='object-cover shadow-custom '
+						className='object-cover shadow-custom hidden md:block'
 						loading='lazy'
 						width={550}
 						height={550}
 					/>
+					<Image
+						src={currentImageMobile}
+						alt='zdjęcie przedstawiające mój wizerunek'
+						className='object-cover shadow-custom md:hidden'
+						loading='lazy'
+						width={350}
+						height={350}
+					/>
 				</div>
-				
+
 				{/* text */}
 				<div className='flex flex-col  gap-6  justify-center  xl:w-1/2   '>
 					<Heading>
