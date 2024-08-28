@@ -7,7 +7,6 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import React from 'react'
 
-
 import PostCard from '@/app/components/PostCard'
 import Header from '@/app/components/Header'
 
@@ -22,13 +21,12 @@ async function getCategories() {
 	return categories
 }
 async function getPosts() {
-	const query = `*[_type == "post"]{
-		title,
-		 "slug":slug.current,
-		thumbnail,
-		categories[]->{title, slug},
-		
-	  }`
+	const query = `*[_type == "post"] | order(publishedAt desc) {
+  title,
+  "slug": slug.current,
+  thumbnail,
+  categories[]->{title, slug}
+}`
 
 	const posts = await client.fetch(query)
 	return posts

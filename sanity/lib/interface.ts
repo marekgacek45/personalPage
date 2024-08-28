@@ -6,6 +6,7 @@ export interface Post {
 	publishedAt: string
 	excerpt: string
 	body: any
+	content:any
 	categories: Array<Category>
 }
 
