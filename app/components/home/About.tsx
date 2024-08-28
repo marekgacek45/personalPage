@@ -8,12 +8,11 @@ import myPhotoPixel from '@/public/assets/my-photo--pixel.webp'
 import myPhotoMobile from '@/public/assets/my-photo--mobile.webp'
 import myPhotoPixelMobile from '@/public/assets/my-photo-pixel--mobile.webp'
 
-import Section from '@/app/components/base/Section'
-import Wrapper from '@/app/components/base/Wrapper'
-import Heading from '@/app/components/base/Heading'
-import Text from '@/app/components/base/Text'
-import ColorSpan from '@/app/components/base/ColorSpan'
-import Card from '../Card'
+import Section from '@/app/components/Section'
+import Wrapper from '@/app/components/Wrapper'
+import Heading from '@/app/components/Heading'
+import Text from '@/app/components/Text'
+import ColorSpan from '@/app/components/ColorSpan'
 
 const About = () => {
 	const [currentImage, setCurrentImage] = useState(myPhoto)
@@ -27,11 +26,6 @@ const About = () => {
 
 		return () => clearInterval(interval)
 	}, [])
-
-	const text = ''
-	const span = 'font-accent text-3xl sm:text-4xl font-semibold tracking-wide'
-	const spanEven = 'text-ownPink-400 '
-	const spanOdd = 'text-ownPurple-400 dark:text-ownYellow-400 '
 
 	return (
 		<Section>

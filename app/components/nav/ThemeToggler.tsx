@@ -1,21 +1,33 @@
+
 'use client'
 
 import React, { useEffect, useState } from 'react'
 import { useTheme } from 'next-themes'
 
-const ThemeToggler = () => {
-	const [mounted, setMounted] = useState(false)
-	const { theme, setTheme } = useTheme()
+import { Sun, Moon } from 'lucide-react'
 
-	useEffect(() => setMounted(true), [])
+const ThemeToggler = (props: { className?: string; isScrolled?: boolean }) => {
+	const [mounted, setMounted] = useState(false)
+	const { theme, setTheme, resolvedTheme } = useTheme()
+
+	useEffect(() => {
+		setMounted(true)
+	}, [])
 
 	if (!mounted) return null
 
 	return (
 		<button
-			className='border border-transparent hover:border-purple-500 p-1 rounded-xl hover:bg-purple-500 hover:bg-opacity-10 duration-500'
-			onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
-			{theme === 'dark' ? '🌞' : '🌙'}
+			className={`p-2 border border-transparent rounded-lg hover:bg-ownPink-400 hover:bg-opacity-10 duration-500 hover:border-ownPink-400  ${
+				props.className
+			} `}
+			onClick={() => setTheme(theme === 'dark' || resolvedTheme === 'dark' ? 'light' : 'dark')}
+			aria-label='Zmień motyw'>
+			{theme === 'dark' || resolvedTheme === 'dark' ? (
+				<Moon className={`text-ownYellow-400 `} />
+			) : (
+				<Sun className='text-ownPurple-400' />
+			)}
 		</button>
 	)
 }

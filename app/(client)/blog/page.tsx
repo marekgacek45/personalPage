@@ -1,4 +1,4 @@
-import Text from '@/app/components/base/Text'
+import Text from '@/app/components/Text'
 import { Post, Category } from '@/sanity/lib/interface'
 import { client } from '@/sanity/lib/client'
 

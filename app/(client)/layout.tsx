@@ -1,15 +1,12 @@
-
-
 import { SpeedInsights } from '@vercel/speed-insights/next'
-import { Analytics } from "@vercel/analytics/react"
-import { font_heading, font_text,font_accent } from '../utils/fonts'
+import { Analytics } from '@vercel/analytics/react'
+import { Provider } from '@/app/utils/Provider'
 
+import { font_heading, font_text, font_accent } from '@/app/utils/fonts'
 import './globals.css'
-import Navbar from '../components/nav/Navbar'
-import { Provider } from '../utils/Provider'
-import Footer from '../components/Footer'
 
-
+import Navbar from '@/app/components/nav/Navbar'
+import Footer from '@/app/components/Footer'
 
 export default function RootLayout({
 	children,
@@ -18,7 +15,8 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='pl' className='scroll-smooth'>
-			<body className={`${font_heading} ${font_text} ${font_accent} font-text bg-bgLight-400 dark:bg-bgDark-600 selection:bg-ownPink-600`}>
+			<body
+				className={`${font_heading} ${font_text} ${font_accent} font-text bg-bgLight-400  dark:bg-bgDark-600 text-fontDark dark:text-fontLight selection:bg-ownTurquise-400 duration-300`}>
 				<Provider>
 					<Navbar />
 

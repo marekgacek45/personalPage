@@ -15,7 +15,7 @@ const Footer = () => {
 	const year = new Date().getFullYear()
 
 	return (
-		<footer className='bg-bgDark-400 dark:bg-bgLight-400 py-16 px-6 md:px-0'>
+		<footer className='bg-black py-16 px-6 md:px-0'>
 			{/* CONTAINER */}
 			<div className='max-w-screen-xl flex flex-col lg:flex-row justify-around 2xl:justify-between items-center gap-12 lg:gap-0 mx-auto'>
 				{/* info */}
@@ -31,8 +31,8 @@ const Footer = () => {
 								</Link>
 							</h2>
 
-							<span className='flex gap-2  mt-4 text-xl md:text-2xl font-heading text-fontLight dark:text-fontDark  '>
-								<CopyIcon className='w-4 fill-white dark:fill-black' />
+							<span className='flex gap-2  mt-4 text-xl md:text-2xl font-heading text-fontLight  '>
+								<CopyIcon className='w-4 fill-white ' />
 								{year}
 							</span>
 						</div>
@@ -56,7 +56,7 @@ const Footer = () => {
 							href={link.href}
 							target='_blank'
 							rel='noreferrer nofollow'
-							className='w-1/2 xl:w-auto flex-grow px-6 py-4 border-2 border-r-1 last:border-r-2 border-fontLight dark:border-fontDark font-text text-lg lg:text-xl text-center sm:text-left text-fontLight dark:text-fontDark hover:border-dashed hover:animate-shake   hover:text-ownPink-600 hover:border-ownPink-200 dark:hover:text-ownPink-600 dark:hover:border-ownPink-200  duration-150'>
+							className='w-1/2 xl:w-auto flex-grow px-6 py-4 border-2 border-r-1 last:border-r-2 border-fontLight font-text text-lg lg:text-xl text-center sm:text-left text-fontLight  hover:border-dashed hover:animate-shake   hover:text-ownPink-600 hover:border-ownPink-200 dark:hover:text-ownPink-600 dark:hover:border-ownPink-200  duration-150'>
 							{link.label}
 						</a>
 					))}

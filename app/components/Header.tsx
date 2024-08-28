@@ -2,7 +2,7 @@ import React from 'react'
 
 import Marquee from 'react-fast-marquee'
 
-import Text from '@/app/components/base/Text'
+import Text from '@/app/components/Text'
 
 const Header = (props: { title: string; marqueeText: string }) => {
 	return (

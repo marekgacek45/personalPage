@@ -1,12 +1,12 @@
 import React from 'react'
-import Heading from '../base/Heading'
-import Section from '../base/Section'
-import Wrapper from '../base/Wrapper'
-import Card from '../Card'
-import Text from '../base/Text'
-import LinkBtn from '../base/LinkBtn'
-import ColorSpan from '../base/ColorSpan'
 import Image from 'next/image'
+import Heading from '@/app/components/Heading'
+import Section from '@/app/components/Section'
+import Wrapper from '@/app/components/Wrapper'
+import Card from '@/app/components/Card'
+import Text from '@/app/components/Text'
+import LinkBtn from '@/app/components/LinkBtn'
+import ColorSpan from '@/app/components/ColorSpan'
 
 const YouTube = () => {
 	return (
@@ -28,7 +28,7 @@ const YouTube = () => {
 						<ColorSpan>porady</ColorSpan> oparte na zdobytym doświadczeniu.
 					</Text>
 					<LinkBtn
-						href='https://youtube.com'
+						href='https://youtube.com/@marekgacekdev'
 						attributes={{ target: '_blank', rel: 'noreferrer nofollow' }}
 						className='self-start'>
 						Sprawdź
@@ -41,14 +41,14 @@ const YouTube = () => {
 						loop={true}
 						muted={true}
 						playsInline={true}
-						poster='/assets/hero-poster.webp'
+						poster='/assets/youtube-poster.webp'
 						className='w-full object-cover min-h-[300px] lg:min-h-[590px] hidden md:block'>
-						<source src='/assets/hero.webm' type='video/webm' />
+						<source src='/assets/youtube.mp4' type='video/mp4' />
 						Twoja przeglądarka nie obsługuje odtwarzacza wideo.
 					</video>
 
 					<Image
-						src='/assets/hero-poster.webp'
+						src='/assets/youtube--mobile.webp'
 						alt='hero-poster'
 						className='w-full object-cover min-h-[300px] lg:min-h-[590px] md:hidden'
 						width={526}

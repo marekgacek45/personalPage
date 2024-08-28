@@ -1,6 +1,7 @@
 import React from 'react'
-import LinkBtn from '@/app/components/base/LinkBtn'
 import Image from 'next/image'
+
+import LinkBtn from '@/app/components/LinkBtn'
 
 const HeroHeader = () => {
 	return (
