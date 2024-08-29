@@ -11,7 +11,7 @@ const LinkBtn = (props: { children: React.ReactNode; href: string; variant?: 'de
     pink: 'bg-ownPink-400 hover:bg-ownPink-600 text-fontDark',
   };
 
-  const combinedStyles = `${baseStyles} ${variantStyles[variant]} ${className}`;
+  const combinedStyles = `${className} ${baseStyles} ${variantStyles[variant]} `;
 
   return (
     <Link href={href} className={combinedStyles} {...attributes}>

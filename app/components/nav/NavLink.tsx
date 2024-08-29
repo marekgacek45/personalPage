@@ -10,7 +10,7 @@ const NavLink = (props: { link: { href: string; label: string }; mobile?: boolea
 	return (
 		<li
 			onClick={props.onClick}
-			className={`text-3xl sm:text-4xl xl:text-xl font-semibold hover:animate-shake hover:text-ownPink-600 dark:hover:text-ownPink-600  duration-150 ${
+			className={`text-3xl sm:text-4xl xl:text-xl font-semibold  hover:text-ownPink-600 dark:hover:text-ownPink-600  duration-150 ${
 				pathname === props.link.href ? ' text-ownPurple-400 dark:text-ownYellow-400 ' : `${linkColor}  `
 			}`}>
 			<Link href={props.link.href}>{props.link.label}</Link>
