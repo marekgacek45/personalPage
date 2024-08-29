@@ -24,7 +24,7 @@ const StackMarquee = async () => {
 	const stacks: Stack[] = await getStacks()
 
 	return (
-		<Marquee autoFill pauseOnHover className='bg-ownPink-400  py-3'>
+		<Marquee autoFill pauseOnHover >
 			{stacks.map((stack, index) => (
 				<Image
 					key={index}

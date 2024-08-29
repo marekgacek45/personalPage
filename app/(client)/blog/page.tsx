@@ -9,6 +9,9 @@ import React from 'react'
 
 import PostCard from '@/app/components/PostCard'
 import Header from '@/app/components/Header'
+import Image from 'next/image'
+import { urlFor } from '@/sanity/lib/image'
+import LinkBtn from '@/app/components/LinkBtn'
 
 async function getCategories() {
 	const query = `*[_type == "category"]{
@@ -25,7 +28,8 @@ async function getPosts() {
   title,
   "slug": slug.current,
   thumbnail,
-  categories[]->{title, slug}
+  excerpt
+  
 }`
 
 	const posts = await client.fetch(query)
@@ -50,28 +54,27 @@ export default async function Blog() {
 				title='Blog'
 				marqueeText='Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus cupiditate reiciendis quo aliquid ipsa, rerum rem corrupti est perspiciatis dolorem.'
 			/>
-			<main className='px-6 sm:px-12 pb-20'>
+			<main className='px-6 sm:px-7 pb-20'>
 				{/* categories */}
 				<section className='max-w-screen-2xl mx-auto pb-16'>
-					<div className='flex flex-col lg:flex-row gap-6 lg:gap-0 justify-between items-center  '>
-						<h2 className='text-xl font-heading '>Kategorie</h2>
+					<div className='flex flex-col lg:flex-row gap-6 lg:gap-8 justify-center  items-center  '>
+						<h2 className='text-xl font-heading '>Kategorie:</h2>
 						<div className='flex flex-wrap justify-center gap-6 '>
 							{categories.map((category, index) => (
-								<Link
-									href={`/blog/kategoria/${category.slug}`}
-									key={index}
-									className='px-4    py-2  bg-ownPink-400 hover:bg-ownPink-600  text-sm text-fontLight  font-bold  shadow-customSmall hover:animate-shake duration-150  '>
+								<LinkBtn key={index} small href={`/blog/kategoria/${category.slug}`}>
 									{category.title}
-								</Link>
+								</LinkBtn>
 							))}
 						</div>
 					</div>
 				</section>
 				{/* posts */}
-				<section className='2xl:px-12 mx-auto'>
-					<div className='grid md:grid-cols-2 xl:grid-cols-3 gap-12'>
+				<section className=' mx-auto'>
+					<div
+						className='grid lg:grid-cols-2 xl:grid-cols-3  2xl:grid-cols-4 gap-x-8 gap-y-16
+					'>
 						{posts.map((post, index) => (
-							<PostCard post={post} key={index} />
+							<PostCard key={index} post={post} />
 						))}
 					</div>
 				</section>

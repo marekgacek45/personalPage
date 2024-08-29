@@ -22,7 +22,7 @@ const Footer = () => {
 				<div className='flex flex-row justify-center items-center gap-6 sm:gap-16 order-1 lg:order-none'>
 					<div className='flex justify-start items-center order-1 sm:order-none'>
 						<div>
-							<h2 className=' text-3xl md:text-5xl font-heading text-ownYellow-400 dark:text-ownYellow-600  hover:text-ownPink-600 duration-150'>
+							<h2 className=' text-3xl md:text-5xl font-heading text-ownYellow-400  hover:text-ownPink-600  duration-150'>
 								<Link href='/'>
 									Marek
 									<br />

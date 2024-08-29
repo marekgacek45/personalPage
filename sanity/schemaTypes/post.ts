@@ -34,6 +34,12 @@ export const post = {
 			type: 'image',
 			validation: (Rule: Rule) => Rule.required().error('Pole wymagane'),
 		},
+		{
+			name: 'excerpt',
+			title: 'Excerpt',
+			type: 'text',
+			validation: (Rule: Rule) => Rule.max(200).error("Max 200 characters"),
+		},
 
 		{
 			name: 'content',
