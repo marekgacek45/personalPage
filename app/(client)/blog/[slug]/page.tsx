@@ -1,19 +1,18 @@
-import { client } from '@/sanity/lib/client'
 import React from 'react'
 import type { Post } from '@/sanity/lib/interface'
+import { client } from '@/sanity/lib/client'
 import { urlFor } from '@/sanity/lib/image'
 import { PortableText } from '@portabletext/react'
-import PostCard from '@/app/components/blog/PostCard'
+
 import Image from 'next/image'
 import Heading from '@/app/components/Heading'
 import CategoryList from '@/app/components/blog/CategoryList'
 import PostsGrid from '@/app/components/blog/PostsGrid'
 
-
-
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { dracula } from 'react-syntax-highlighter/dist/esm/styles/prism';
-
+// @ts-ignore
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+// @ts-ignore
+import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
 const getPost = async (slug: string) => {
 	const query = `
@@ -46,11 +45,13 @@ export const revalidate = 60
 
 const myPortableTextComponents = {
 	types: {
-		image: ({ value }: any) => <Image src={urlFor(value).url()} alt='post' width={700} height={700} />,
+		image: ({ value }: any) => (
+			<Image src={urlFor(value).url()} alt='post' width={700} height={700} className='mx-auto' />
+		),
 		codeBlock: ({ value }: any) => (
-			<SyntaxHighlighter language={value.language} style={dracula}>
-            {value.code}
-          </SyntaxHighlighter>
+			<SyntaxHighlighter language={value.language} style={nightOwl}>
+				{value.code}
+			</SyntaxHighlighter>
 		),
 	},
 }
@@ -59,7 +60,6 @@ const Post = async ({ params }: { params: { slug: string } }) => {
 	const post: Post = await getPost(params?.slug)
 	const otherPosts: Post[] = await getOtherPosts(params?.slug)
 
-	console.log(post)
 	return (
 		<>
 			<main className='mt-[76px]  px-6 sm:px-12 py-12 sm:py-24 space-y-32'>
@@ -74,7 +74,7 @@ const Post = async ({ params }: { params: { slug: string } }) => {
 							{/* publishedAt */}
 							<div className='flex flex-col justify-start items-start gap-2'>
 								<span className='text-base font-medium'>Posted:</span>
-								<span className='text-sm'> {new Date(post?.publishedAt).toDateString()}</span>
+								<span className='text-base'> {new Date(post?.publishedAt).toDateString()}</span>
 							</div>
 							{/* categories */}
 							<CategoryList categories={post.categories} />
@@ -83,18 +83,24 @@ const Post = async ({ params }: { params: { slug: string } }) => {
 						<Image
 							src={urlFor(post.thumbnail).url()}
 							alt={`miniaturka postu o tytule ${post.title}`}
-							className='w-full object-cover max-h-[500px] 2xl:max-h-[600px]'
-							width={500}
-							height={500}
+							className='w-full object-cover'
+							width={1498}
+							height={842}
 						/>
 					</header>
-
-					<div className=' mx-auto prose text-fontPrimary text-lg max-w-screen-lg'>
+					{/* content */}
+					<div className=' mx-auto prose  text-fontPrimary text-lg max-w-screen-lg text-fontDark dark:text-fontLight prose-headings:text-fontDark prose-headings:dark:text-fontLight'>
 						<PortableText value={post.content} components={myPortableTextComponents} />
 					</div>
 				</article>
+				<hr className='border-fontDark dark:border-fontLight' />
 				{/* otherPosts */}
-				<PostsGrid posts={otherPosts} />
+				<section>
+					<Heading level={2} className='text-center mb-12'>
+						Discover more
+					</Heading>
+					<PostsGrid posts={otherPosts} />
+				</section>
 			</main>
 		</>
 	)

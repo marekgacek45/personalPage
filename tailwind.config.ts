@@ -84,12 +84,11 @@ const config: Config = {
 				},
 			},
 			boxShadow: {
-				'custom': '10px 10px 0 rgba(0, 0, 0, 0.4)',
-				'customSmall':'5px 5px 0 rgba(0, 0, 0, 0.4)',
-				
+				custom: '10px 10px 0 rgba(0, 0, 0, 0.4)',
+				customSmall: '5px 5px 0 rgba(0, 0, 0, 0.4)',
 			},
 		},
 	},
-	plugins: [],
+	plugins: [require('@tailwindcss/typography')],
 }
 export default config
