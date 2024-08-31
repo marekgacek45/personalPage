@@ -38,7 +38,7 @@ export const post = {
 			name: 'excerpt',
 			title: 'Excerpt',
 			type: 'text',
-			validation: (Rule: Rule) => Rule.max(200).error("Max 200 characters"),
+			validation: (Rule: Rule) => Rule.max(200).error('Max 200 characters'),
 		},
 
 		{
@@ -51,12 +51,22 @@ export const post = {
 					type: 'image',
 					fields: [
 						{
+							type: 'text',
 							name: 'alt',
 							title: 'Alt',
-							type: 'text',
 						},
 					],
 				},
+				{ type: 'code',  name: 'codeBlock', title: 'Code' , language: 'typescript',
+					languageAlternatives: [
+						{title: 'Typescript', value: 'typescript'},
+					  {title: 'Javascript', value: 'javascript'},
+					  {title: 'HTML', value: 'html'},
+					  {title: 'CSS', value: 'css'},
+					  {title: 'PHP', value: 'php'},
+					],
+					
+				  },
 			],
 		},
 		{ name: 'categories', title: 'Categories', type: 'array', of: [{ type: 'reference', to: { type: 'category' } }] },

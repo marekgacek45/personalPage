@@ -7,7 +7,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import React from 'react'
 
-import PostCard from '@/app/components/PostCard'
+import PostCard from '@/app/components/blog/PostCard'
 import Header from '@/app/components/Header'
 import Image from 'next/image'
 import { urlFor } from '@/sanity/lib/image'
@@ -49,16 +49,15 @@ export default async function Blog(props: { params: { slug: string } }) {
 	const posts: Post[] = await getPostsByCategory(props.params.slug)
 	const categories: Category[] = await getCategories()
 
-
 	return (
 		<>
 			<Header
 				title='Blog'
 				marqueeText={
-                    <>
-                      wpisy z kategorii <ColorSpan>{props.params.slug}</ColorSpan>
-                    </>
-                  }
+					<>
+						wpisy z kategorii <ColorSpan>{props.params.slug}</ColorSpan>
+					</>
+				}
 			/>
 			<main className='px-6 sm:px-7 pb-20'>
 				{/* categories */}
@@ -67,7 +66,11 @@ export default async function Blog(props: { params: { slug: string } }) {
 						<h2 className='text-xl font-heading '>Kategorie:</h2>
 						<div className='flex flex-wrap justify-center gap-6 '>
 							{categories.map((category, index) => (
-								<LinkBtn key={index} small href={`/blog/kategoria/${category.slug}`} className={`${props.params.slug === category.slug ? 'bg-ownTurquise-400 hover:bg-ownTurquise-600' : ''}`}>
+								<LinkBtn
+									key={index}
+									small
+									href={`/blog/kategoria/${category.slug}`}
+									className={`${props.params.slug === category.slug ? 'bg-ownTurquise-400 hover:bg-ownTurquise-600' : ''}`}>
 									{category.title}
 								</LinkBtn>
 							))}

@@ -7,7 +7,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import React from 'react'
 
-import PostCard from '@/app/components/PostCard'
+import PostCard from '@/app/components/blog/PostCard'
 import Header from '@/app/components/Header'
 import Image from 'next/image'
 import { urlFor } from '@/sanity/lib/image'
