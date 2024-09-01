@@ -31,9 +31,7 @@ const HeroHeader = () => {
 				<h1 className='text-[2.6rem] md:text-7xl xl:text-8xl 2xl:text-9xl font-heading text-ownYellow-400 uppercase leading-normal sm:leading-6 sm:tracking-wide '>
 				Breaking<br/> the Code
 				</h1>
-				<h2 className='md:text-2xl 2xl:text-3xl  text-fontLight tracking-widest'>
-				Hacking Through the Cyber Void
-				</h2>
+				
 				<div className='flex flex-col md:flex-row gap-6 md:gap-12 mt-6 md:mt-12  lg:mt-0 2xl:mt-16'>
 					<LinkBtn href='/portfolio'>Portfolio</LinkBtn>
 					<LinkBtn href='/blog' variant='yellow'>

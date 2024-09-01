@@ -3,7 +3,7 @@ import LinkBtn from '@/app/components/LinkBtn'
 
 
 
-const CategoryList = (props: { categories: Array<any> }) => {
+const PostCategoryList = (props: { categories: Array<any> }) => {
 	return (
 		<div className='flex justify-start items-center gap-4 mt-2'>
 			{props.categories.map((category, index) => (
@@ -15,4 +15,4 @@ const CategoryList = (props: { categories: Array<any> }) => {
 	)
 }
 
-export default CategoryList
+export default PostCategoryList

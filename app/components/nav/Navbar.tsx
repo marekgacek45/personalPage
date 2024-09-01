@@ -17,7 +17,7 @@ import { socialItems } from '@/app/utils/socials'
 const navLinks = [
 	{ href: '/blog', label: 'Blog' },
 	{ href: '/portfolio', label: 'Portfolio' },
-	{ href: '/#kontakt', label: 'Kontakt' },
+	{ href: '/#contact', label: 'Contact' },
 ]
 
 const Navbar = () => {
@@ -38,7 +38,7 @@ const Navbar = () => {
 							onClick={handleLinkClick}
 							href='/'
 							className='flex items-center gap-3 text-3xl font-heading text-ownPurple-400 dark:text-ownYellow-400 hover:text-ownPink-600 dark:hover:text-ownPink-600  duration-150'>
-							<Image src={logo} alt='moje logo' className='w-11' />
+							<Image src={logo} alt='my logo' className='w-11' />
 							Marek Gacek
 						</Link>
 

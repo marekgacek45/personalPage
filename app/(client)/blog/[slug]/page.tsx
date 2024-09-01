@@ -6,7 +6,7 @@ import { PortableText } from '@portabletext/react'
 
 import Image from 'next/image'
 import Heading from '@/app/components/Heading'
-import CategoryList from '@/app/components/blog/CategoryList'
+import CategoryList from '@/app/components/blog/PostCategoryList'
 import PostsGrid from '@/app/components/blog/PostsGrid'
 
 // @ts-ignore

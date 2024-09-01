@@ -5,9 +5,6 @@ import Image from 'next/image'
 import myPhoto from '@/public/assets/my-photo.webp'
 import myPhotoPixel from '@/public/assets/my-photo--pixel.webp'
 
-import myPhotoMobile from '@/public/assets/my-photo--mobile.webp'
-import myPhotoPixelMobile from '@/public/assets/my-photo-pixel--mobile.webp'
-
 import Section from '@/app/components/Section'
 import Wrapper from '@/app/components/Wrapper'
 import Heading from '@/app/components/Heading'
@@ -17,12 +14,12 @@ import Card from '../Card'
 
 const About = () => {
 	const [currentImage, setCurrentImage] = useState(myPhoto)
-	// const [currentImageMobile, setCurrentImageMobile] = useState(myPhotoMobile)
+
 
 	useEffect(() => {
 		const interval = setInterval(() => {
 			setCurrentImage(prevImage => (prevImage === myPhoto ? myPhotoPixel : myPhoto))
-			// setCurrentImageMobile(prevImage => (prevImage === myPhotoMobile ? myPhotoPixelMobile : myPhoto))
+			
 		}, 3000)
 
 		return () => clearInterval(interval)
