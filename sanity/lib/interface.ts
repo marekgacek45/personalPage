@@ -10,6 +10,17 @@ export interface Post {
 	categories: Array<Category>
 }
 
+export interface Project {
+	_id: string
+	title: string
+    thumbnail: any
+	link: string
+	github: string
+	video:string
+	stack: Array<Stack>
+}
+
+
 export interface Stack{
 	_id: string,
 	title: string

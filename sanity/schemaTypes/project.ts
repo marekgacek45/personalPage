@@ -18,6 +18,12 @@ export const project = {
 			validation: (Rule: Rule) => Rule.required().error('Pole wymagane'),
 		},
 		{
+			name: 'github',
+			title: 'Github Link',
+			type: 'url',
+			validation: (Rule: Rule) => Rule.required().error('Pole wymagane'),
+		},
+		{
 			name: 'thumbnail',
 			title: 'Thumbnail',
 			type: 'image',
