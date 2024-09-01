@@ -14,12 +14,11 @@ const HeroHeader = () => {
 				poster='/assets/hero-poster.webp'
 				className=' absolute inset-0 w-full h-full object-cover hidden md:block'>
 				<source src='/assets/hero.webm' type='video/webm' />
-				Twoja przeglądarka nie obsługuje odtwarzacza wideo.
-			</video>
+				Your browser does not support the video player.			</video>
 
 			<Image
 				src='/assets/hero--mobile.webp'
-				alt='hero-poster'
+				alt='cyberpunk world'
 				className='absolute inset-0 w-full h-full object-cover md:hidden'
 				width={526}
 				height={300}
@@ -30,10 +29,10 @@ const HeroHeader = () => {
 
 			<div className='absolute inset-0 max-w-screen-lg flex flex-col justify-center items-center text-center  gap-6 md:gap-12  px-6 sm:px-0  mx-auto '>
 				<h1 className='text-[2.6rem] md:text-7xl xl:text-8xl 2xl:text-9xl font-heading text-ownYellow-400 uppercase leading-normal sm:leading-6 sm:tracking-wide '>
-					Odkryj Moc Nowoczesnych Rozwiązań
+				Breaking<br/> the Code
 				</h1>
 				<h2 className='md:text-2xl 2xl:text-3xl  text-fontLight tracking-widest'>
-					Wznieś swoją stronę na wyższy poziom
+				Hacking Through the Cyber Void
 				</h2>
 				<div className='flex flex-col md:flex-row gap-6 md:gap-12 mt-6 md:mt-12  lg:mt-0 2xl:mt-16'>
 					<LinkBtn href='/portfolio'>Portfolio</LinkBtn>
@@ -43,6 +42,7 @@ const HeroHeader = () => {
 				</div>
 			</div>
 		</header>
+		
 	)
 }
 

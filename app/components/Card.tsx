@@ -21,7 +21,7 @@ const Card = (props: { children: React.ReactNode; title: string; className?: str
 		)
 	  } else {
 		return (
-		  <div className={`shadow-custom ${props.className}`}>
+		  <div className={`shadow-custom  ${props.className}`}>
 			{content}
 		  </div>
 		)

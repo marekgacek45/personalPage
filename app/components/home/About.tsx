@@ -13,15 +13,16 @@ import Wrapper from '@/app/components/Wrapper'
 import Heading from '@/app/components/Heading'
 import Text from '@/app/components/Text'
 import ColorSpan from '@/app/components/ColorSpan'
+import Card from '../Card'
 
 const About = () => {
 	const [currentImage, setCurrentImage] = useState(myPhoto)
-	const [currentImageMobile, setCurrentImageMobile] = useState(myPhotoMobile)
+	// const [currentImageMobile, setCurrentImageMobile] = useState(myPhotoMobile)
 
 	useEffect(() => {
 		const interval = setInterval(() => {
 			setCurrentImage(prevImage => (prevImage === myPhoto ? myPhotoPixel : myPhoto))
-			setCurrentImageMobile(prevImage => (prevImage === myPhotoMobile ? myPhotoPixelMobile : myPhoto))
+			// setCurrentImageMobile(prevImage => (prevImage === myPhotoMobile ? myPhotoPixelMobile : myPhoto))
 		}, 3000)
 
 		return () => clearInterval(interval)
@@ -32,50 +33,43 @@ const About = () => {
 			<Wrapper>
 				{/* img */}
 				<div className='flex justify-center items-center xl:w-1/2 '>
+				<Card title="It's me!">
 					<Image
 						src={currentImage}
-						alt='zdjęcie przedstawiające mój wizerunek'
+						alt='my photo'
 						className='object-cover shadow-custom hidden md:block'
-						loading='lazy'
 						width={550}
 						height={550}
 					/>
-					<Image
-						src={currentImageMobile}
-						alt='zdjęcie przedstawiające mój wizerunek'
-						className='object-cover shadow-custom md:hidden'
-						loading='lazy'
-						width={350}
-						height={350}
-					/>
+				</Card>
 				</div>
 
 				{/* text */}
 				<div className='flex flex-col  gap-6  justify-center  xl:w-1/2   '>
 					<Heading>
-						Cześć,
-						<br /> mam na imię Marek
+						Hi,
+						<br /> My name is Marek
 					</Heading>
 
 					<Text>
-						Jestem <ColorSpan>programistą</ColorSpan>, specjalizującym się w tworzeniu stron internetowych.
+						I&apos;am <ColorSpan>developer</ColorSpan>, specializing in creating websites.
 					</Text>
 					<Text>
-						Walczę na całej powierzchni webowego pola, wykorzystując
-						<ColorSpan secondary> JavaScript </ColorSpan>oraz
+					I battle across the entire web landscape wielding
+						<ColorSpan secondary> JavaScript </ColorSpan>and
 						<ColorSpan> PHP </ColorSpan>
-						jako swoje oręża.
+						as my weapons.
 					</Text>
 					<Text>
-						W trakcie mojej edukacji ukończyłem wiele kursów min.
+					During my education, I completed many of courses, including
 						<ColorSpan secondary> Opanuj JS-Przeprogramowani </ColorSpan>
-						czy
+						and
 						<ColorSpan> wtf-Maciej Korsan</ColorSpan>.
 					</Text>
 					<Text>
-						Oprócz tego zdobyłem certyfikat w kursie
-						<ColorSpan secondary> FullStack </ColorSpan>prowadzony przez <ColorSpan> University of Helsinki</ColorSpan>,
-						najstarszą i największą uczelnię naukową w <ColorSpan secondary>Finlandii</ColorSpan>.
+					In addition, I earned a certificate 
+						<ColorSpan secondary> FullStack Development </ColorSpan>from the <ColorSpan> University of Helsinki</ColorSpan>,
+						the oldest and largest academic institution in <ColorSpan secondary>Finland</ColorSpan>.
 					</Text>
 				</div>
 			</Wrapper>

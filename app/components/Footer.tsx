@@ -40,10 +40,9 @@ const Footer = () => {
 					<div className='max-w-[220px] '>
 						<a href='/assets/bolec.gif' target='_blank'>
 							<span className=' text-2xl text-center sm:text-left font-heading text-ownPurple-400 hover:text-ownPink-600 duration-150'>
+								In Poland we say:<br></br>
 								Coco Jumbo i do przodu! <br />
-								To moje hasło.
-								<br />
-								Dobre, nie?
+								
 							</span>
 						</a>
 					</div>

@@ -32,7 +32,6 @@ const StackMarquee = async () => {
 					alt={`logo ${stack.title}`}
 					width={70}
 					height={70}
-					loading='lazy'
 					className='mx-4'
 				/>
 			))}
