@@ -65,7 +65,7 @@ export default async function Blog(props: { params: { slug: string } }) {
 				{/* categories */}
 
 				<section className='max-w-screen-2xl mx-auto pb-16'>
-					<FilterList>
+					<FilterList title='Categories'>
 						<LinkBtn small href='/blog'>
 							All
 						</LinkBtn>

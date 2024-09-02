@@ -48,7 +48,7 @@ export default async function Blog() {
 			<main className='px-6 sm:px-7 pb-20'>
 				{/* categories */}
 				<section className='max-w-screen-2xl mx-auto pb-16'>
-					<FilterList>
+					<FilterList title='Categories'>
 						{categories.map((category, index) => (
 							<LinkBtn key={index} small href={`/blog/kategoria/${category.slug}`}>
 								{category.title}

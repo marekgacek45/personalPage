@@ -1,12 +1,16 @@
-import ColorSpan from '@/app/components/ColorSpan'
-import Header from '@/app/components/Header'
-import ProjectCard from '@/app/components/portfolio/ProjectCard'
+import { Stack,Project } from '@/sanity/lib/interface'
+
 import { client } from '@/sanity/lib/client'
 import { urlFor } from '@/sanity/lib/image'
-import { Stack,Project } from '@/sanity/lib/interface'
 import { Image } from 'next-sanity/image'
 import Link from 'next/link'
-import React from 'react'
+
+import Header from '@/app/components/Header'
+import ColorSpan from '@/app/components/ColorSpan'
+import ProjectCard from '@/app/components/portfolio/ProjectCard'
+import FilterList from '@/app/components/FilterList'
+import LinkBtn from '@/app/components/LinkBtn'
+
 
 const getStacks = async () => {
 	const query = `
@@ -46,29 +50,30 @@ const ProjectsByStack =async (props: { params: { slug: string } }) => {
 				title='Portfolio'
 				marqueeText={
 					<>
-						wpisy z kategorii <ColorSpan>{props.params.slug}</ColorSpan>
+						build showcase of <ColorSpan>{props.params.slug}</ColorSpan>
 					</>
 				}
 			/>
             	<main className='px-6 sm:px-7 pb-20'>
 				{/* stacks */}
+				
 				<section className='max-w-screen-2xl mx-auto pb-16'>
-					<div className='flex flex-col lg:flex-row gap-6 lg:gap-8 justify-center  items-center  '>
-						<h2 className='text-xl font-heading '>Stack:</h2>
-						<div className='flex flex-wrap justify-center gap-6 '>
-							{stacks.map((stack, index) => (
-								<Link key={index} href={`/portfolio/stack/${stack.slug}`}>
-									<Image
-										src={urlFor(stack.image).url()}
-										alt={stack.title}
-										width={700}
-										height={700}
-										className={`mx-auto w-[50px] ${props.params.slug === stack.slug ? 'w-[80px]' : ''} `}
-									/>
-								</Link>
-							))}
-						</div>
-					</div>
+					<FilterList title='Stacks'>
+					<LinkBtn className='self-center' small href='/portfolio'>
+							All
+						</LinkBtn>
+						{stacks.map((stack, index) => (
+							<Link key={index} href={`/portfolio/stack/${stack.slug}`}>
+								<Image
+									src={urlFor(stack.image).url()}
+									alt={stack.title}
+									width={120}
+									height={120}
+									className={`w-[40px]   ${props.params.slug === stack.slug ? '' : 'hover:scale-105 duration-150'} `}
+								/>
+							</Link>
+						))}
+					</FilterList>
 				</section>
                 {/* projects */}
 				<section className=' mx-auto '>

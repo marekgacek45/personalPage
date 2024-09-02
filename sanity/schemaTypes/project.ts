@@ -11,6 +11,13 @@ export const project = {
 			type: 'string',
 			validation: (Rule: Rule) => Rule.required().error('Pole wymagane'),
 		},
+
+		{
+			name: 'thumbnail',
+			title: 'Thumbnail',
+			type: 'image',
+		},
+
 		{
 			name: 'link',
 			title: 'Link',
@@ -23,21 +30,23 @@ export const project = {
 			type: 'url',
 			validation: (Rule: Rule) => Rule.required().error('Pole wymagane'),
 		},
-		{
-			name: 'thumbnail',
-			title: 'Thumbnail',
-			type: 'image',
-		},
+
 		{
 			name: 'video',
 			title: 'Video',
 			type: 'url',
 		},
 		{
+			name: 'description',
+			title: 'Description',
+			type: 'text',
+			validation: (Rule: Rule) => Rule.max(200).error('Max 200 characters'),
+		},
+		{
 			name: 'stack',
 			title: 'Stack',
 			type: 'array',
-      of:[{type: 'reference', to: {type: 'stack'}}],
+			of: [{ type: 'reference', to: { type: 'stack' } }],
 		},
 	],
 }

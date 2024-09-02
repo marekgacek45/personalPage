@@ -17,6 +17,7 @@ export interface Project {
 	link: string
 	github: string
 	video:string
+	description: string
 	stack: Array<Stack>
 }
 
