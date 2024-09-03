@@ -8,6 +8,10 @@ import './globals.css'
 import Navbar from '@/app/components/nav/Navbar'
 import Footer from '@/app/components/Footer'
 
+import type { Metadata } from 'next'
+
+
+
 export default function RootLayout({
 	children,
 }: Readonly<{

@@ -1,4 +1,3 @@
-
 import { Post, Category } from '@/sanity/lib/interface'
 import { client } from '@/sanity/lib/client'
 import type { Metadata } from 'next'
@@ -33,9 +32,19 @@ async function getPosts() {
 export const revalidate = 60
 
 export const metadata: Metadata = {
+	
 	title: 'Developer Insights Blog | Marek Gacek - Web Development & Programming',
 	description:
 		"Explore Marek Gacek's blog for expert insights on web development, programming tutorials, and the latest in tech trends. Stay updated with tips, tools, and techniques.",
+	openGraph: {
+		title: 'Developer Insights Blog | Marek Gacek - Web Development & Programming',
+		description:
+			"Explore Marek Gacek's blog for expert insights on web development, programming tutorials, and the latest in tech trends. Stay updated with tips, tools, and techniques.",
+		type: 'website',
+		locale: 'en_US',
+		url: 'https://marekgacekdev.pl',
+		siteName: 'Marek Gacek - FullStack Developer',
+	},
 }
 
 export default async function Blog() {
