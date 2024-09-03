@@ -7,6 +7,7 @@ import HeroHeader from '@/app/components/home/HeroHeader'
 import About from '@/app/components/home/About'
 import StackMarquee from '@/app/components/home/StackMarquee'
 import YouTube from '@/app/components/home/YouTube'
+import Contact from '@/app/components/home/Contact'
 
 async function getStacks() {
 	const query = `
@@ -47,6 +48,7 @@ export default async function Home() {
 				<About />
 				<StackMarquee stacks={stacks} />
 				<YouTube />
+				<Contact/>
 			</main>
 		</>
 	)

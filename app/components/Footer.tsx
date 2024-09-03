@@ -5,7 +5,7 @@ import React from 'react'
 import { CopyIcon } from '@/app/utils/icons'
 
 const footerLinks = [
-	{ href: 'mailto:marekgacek45@gmail.com', label: 'Email' },
+	{ href: 'mailto:marekgacekdev@gmail.com', label: 'Email' },
 	{ href: 'https://github.com/marekgacek45', label: 'Github' },
 	{ href: 'https://facebook.com/marekgacekdev', label: 'Facebook' },
 	{ href: 'https://www.linkedin.com/in/marek-gacek', label: 'Linkedin' },

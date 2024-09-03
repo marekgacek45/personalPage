@@ -92,13 +92,10 @@ export default async function Blog(props: { params: { slug: string } }) {
 				</section>
 				{/* posts */}
 				<section className=' mx-auto'>
-					{posts.length > 0 ? (
+					
 						<PostsGrid posts={posts} />
-					) : (
-						<div className='text-center py-4 sm:py-24'>
-							<ColorSpan>Posts not found</ColorSpan>
-						</div>
-					)}
+					
+					
 				</section>
 			</main>
 		</>
