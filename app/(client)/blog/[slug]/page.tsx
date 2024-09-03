@@ -13,15 +13,18 @@ import PostsGrid from '@/app/components/blog/PostsGrid'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 // @ts-ignore
 import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/prism'
+import { Metadata } from 'next'
+import { notFound } from 'next/navigation'
 
 const getPost = async (slug: string) => {
 	const query = `
     *[_type == "post" && slug.current == "${slug}"][0]{
         title,
-        slug,
+        "slug": slug.current,
         thumbnail,
-		publishedAt,
+		excerpt,
         content,
+		publishedAt,
         categories[]->{title, slug},
       }`
 	const data = await client.fetch(query)
@@ -43,6 +46,33 @@ const getOtherPosts = async (slug: string) => {
 
 export const revalidate = 60
 
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata | undefined> {
+	const post: Post = await getPost(params?.slug)
+	if (!post) {
+		return
+	}
+	return {
+		title: `${post.title}`,
+		description: post.excerpt,
+		openGraph: {
+			title: `${post.title} | Marek Gacek - Web Development & Programming`,
+			description: post.excerpt,
+			type: 'article',
+			locale: 'en_US',
+			url: `https://marekgacekdev.pl/blog/blog/${post.slug}`,
+			siteName: 'Marek Gacek - FullStack Developer',
+			images: [
+				{
+					url: urlFor(post.thumbnail).url(),
+					width: 1200,
+					height: 630,
+					alt: `${post.title} thumbnail`,
+				},
+			],
+		},
+	}
+}
+
 const myPortableTextComponents = {
 	types: {
 		image: ({ value }: any) => (
@@ -59,6 +89,8 @@ const myPortableTextComponents = {
 const Post = async ({ params }: { params: { slug: string } }) => {
 	const post: Post = await getPost(params?.slug)
 	const otherPosts: Post[] = await getOtherPosts(params?.slug)
+
+if(!post) notFound()
 
 	return (
 		<>
@@ -82,7 +114,7 @@ const Post = async ({ params }: { params: { slug: string } }) => {
 						{/* thumbnail */}
 						<Image
 							src={urlFor(post.thumbnail).url()}
-							alt={`miniaturka postu o tytule ${post.title}`}
+							alt={`thumbnail of article -  ${post.title}`}
 							className='w-full object-cover'
 							width={1498}
 							height={842}
@@ -95,12 +127,14 @@ const Post = async ({ params }: { params: { slug: string } }) => {
 				</article>
 				<hr className='border-fontDark dark:border-fontLight' />
 				{/* otherPosts */}
-				<section>
-					<Heading level={2} className='text-center mb-12'>
-						Discover more
-					</Heading>
-					<PostsGrid posts={otherPosts} />
-				</section>
+				{otherPosts.length > 0 && (
+					<section>
+						<Heading level={2} className='text-center mb-12'>
+							Discover more
+						</Heading>
+						<PostsGrid posts={otherPosts} />
+					</section>
+				)}
 			</main>
 		</>
 	)

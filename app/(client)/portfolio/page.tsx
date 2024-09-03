@@ -42,9 +42,21 @@ const getStacks = async () => {
 export const revalidate = 60
 
 export const metadata: Metadata = {
-	title: 'Portfolio - Marek Gacek - Full Stack Developer',
+	title: 'Portfolio',
 	description:
-		'Explore the portfolio of Marek Gacek, a Full Stack Developer from Poland, showcasing innovative web and software projects. Discover expertise in front-end and back-end development.',
+		"Explore the portfolio of Marek Gacek, a Full Stack Developer from Poland, showcasing innovative web and software projects. Discover expertise in front-end and back-end development.",
+	openGraph: {
+		title: 'Portfolio | Marek Gacek - Web Development & Programming',
+		description:
+			"Explore the portfolio of Marek Gacek, a Full Stack Developer from Poland, showcasing innovative web and software projects. Discover expertise in front-end and back-end development.",
+		type: 'website',
+		locale: 'en_US',
+		url: 'https://marekgacekdev.pl',
+		siteName: 'Marek Gacek - FullStack Developer',
+	},
+
+
+	
 }
 
 const Portfolio = async () => {

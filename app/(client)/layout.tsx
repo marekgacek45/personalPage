@@ -10,7 +10,12 @@ import Footer from '@/app/components/Footer'
 
 import type { Metadata } from 'next'
 
-
+export const metadata: Metadata = {
+	title:{
+		default: 'Marek Gacek - FullStack Developer',
+		template: '%s | Marek Gacek - FullStack Developer',
+	}
+}
 
 export default function RootLayout({
 	children,

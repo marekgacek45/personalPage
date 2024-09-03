@@ -1,4 +1,3 @@
-
 import type { Metadata } from 'next'
 
 import { client } from '@/sanity/lib/client'
@@ -9,23 +8,21 @@ import About from '@/app/components/home/About'
 import StackMarquee from '@/app/components/home/StackMarquee'
 import YouTube from '@/app/components/home/YouTube'
 
-
 async function getStacks() {
-		const query = `
+	const query = `
 	    *[_type == "stack"]{
 	    title,
 	    image,
 	  }
 	    `
-		const stacks = await client.fetch(query)
-		return stacks
-	}
-	
-	export const revalidate = 60
+	const stacks = await client.fetch(query)
+	return stacks
+}
 
-	
+export const revalidate = 60
+
 export const metadata: Metadata = {
-	
+	metadataBase: new URL('https://marekgacekdev.pl'),
 	title: 'Marek Gacek - Web Development & Programming',
 	description:
 		"Explore Marek Gacek's website, a skilled Full Stack Developer from Poland, specializing in crafting high-performance web and software solutions. Discover expertise in both front-end and back-end development, delivering innovative and scalable digital experiences",
@@ -47,9 +44,9 @@ export default async function Home() {
 		<>
 			<HeroHeader />
 			<main>
-				<About/>
-				<StackMarquee stacks={stacks}/>
-				<YouTube/>
+				<About />
+				<StackMarquee stacks={stacks} />
+				<YouTube />
 			</main>
 		</>
 	)

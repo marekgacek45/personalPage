@@ -8,10 +8,11 @@ import PostsGrid from '@/app/components/blog/PostsGrid'
 import FilterList from '@/app/components/FilterList'
 
 async function getCategories() {
-	const query = `*[_type == "category"]{
+	const query = `*[_type == "category" && count(*[_type == "post" && references(^._id)]) > 0]{
 		title,
-		 "slug":slug.current,
-	  }`
+		"slug": slug.current,
+		"postCount": count(*[_type == "post" && references(^._id)])
+	  } | order(postCount desc)`
 
 	const categories = await client.fetch(query)
 	return categories
@@ -22,7 +23,6 @@ async function getPosts() {
   "slug": slug.current,
   thumbnail,
   excerpt
-  
 }`
 
 	const posts = await client.fetch(query)
@@ -32,12 +32,11 @@ async function getPosts() {
 export const revalidate = 60
 
 export const metadata: Metadata = {
-	
-	title: 'Developer Insights Blog | Marek Gacek - Web Development & Programming',
+	title: 'Blog',
 	description:
 		"Explore Marek Gacek's blog for expert insights on web development, programming tutorials, and the latest in tech trends. Stay updated with tips, tools, and techniques.",
 	openGraph: {
-		title: 'Developer Insights Blog | Marek Gacek - Web Development & Programming',
+		title: 'Blog | Marek Gacek - Web Development & Programming',
 		description:
 			"Explore Marek Gacek's blog for expert insights on web development, programming tutorials, and the latest in tech trends. Stay updated with tips, tools, and techniques.",
 		type: 'website',
@@ -59,7 +58,7 @@ export default async function Blog() {
 				<section className='max-w-screen-2xl mx-auto pb-16'>
 					<FilterList title='Categories'>
 						{categories.map((category, index) => (
-							<LinkBtn key={index} small href={`/blog/kategoria/${category.slug}`}>
+							<LinkBtn key={index} small href={`/blog/category/${category.slug}`}>
 								{category.title}
 							</LinkBtn>
 						))}

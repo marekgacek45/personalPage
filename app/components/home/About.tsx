@@ -34,7 +34,7 @@ const About = () => {
 					<Image
 						src={currentImage}
 						alt='my photo'
-						className='object-cover shadow-custom hidden md:block'
+						className='object-cover shadow-custom '
 						width={550}
 						height={550}
 					/>

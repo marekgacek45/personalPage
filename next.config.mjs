@@ -8,14 +8,7 @@ const nextConfig = {
 			},
 		],
 	},
-	async rewrites() {
-		return [
-			{
-				source: '/blog/kategoria/:slug',
-				destination: '/blog/category/:slug',
-			},
-		]
-	},
+	
 }
 
 export default nextConfig

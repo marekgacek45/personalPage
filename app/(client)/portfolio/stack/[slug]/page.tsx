@@ -12,6 +12,7 @@ import ColorSpan from '@/app/components/ColorSpan'
 import ProjectCard from '@/app/components/portfolio/ProjectCard'
 import FilterList from '@/app/components/FilterList'
 import LinkBtn from '@/app/components/LinkBtn'
+import { notFound } from 'next/navigation'
 
 async function getProjectByStack(stack: string) {
 	const query = `*[_type == "project" && references(*[_type == "stack" && slug.current == "${stack}"]._id)] | order(_createdAt desc) {
@@ -43,16 +44,29 @@ const getStacks = async () => {
 
 export const revalidate = 60
 
-export const metadata: Metadata = {
-	title: 'Portfolio - Marek Gacek - Full Stack Developer',
-	description:
-		'Explore the portfolio of Marek Gacek, a Full Stack Developer from Poland, showcasing innovative web and software projects. Discover expertise in front-end and back-end development.',
+
+
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+	return {
+		title: `#${params.slug} Projects`,
+		description: `Explore the portfolio of Marek Gacek, a Full Stack Developer from Poland, showcasing innovative web and software projects. Discover expertise in front-end and back-end development.`,
+		openGraph: {
+			title:  `${params.slug} Projects | Marek Gacek - Web Development & Programming`,
+			description:
+				"Explore Marek Gacek's blog for expert insights on web development, programming tutorials, and the latest in tech trends. Stay updated with tips, tools, and techniques.",
+			type: 'website',
+			locale: 'en_US',
+			url: `https://marekgacekdev.pl/portfolio/stack${params.slug}`,
+			siteName: 'Marek Gacek - FullStack Developer',
+		},
+	}
 }
 
 const ProjectsByStack = async (props: { params: { slug: string } }) => {
 	const stacks: Stack[] = await getStacks()
 	const projects: Project[] = await getProjectByStack(props.params.slug)
 
+	if(!stacks.find(stack => stack.slug === props.params.slug)) notFound()
 
 	return (
 		<>
