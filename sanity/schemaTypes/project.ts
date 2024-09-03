@@ -9,26 +9,26 @@ export const project = {
 			name: 'title',
 			title: 'Title',
 			type: 'string',
-			validation: (Rule: Rule) => Rule.required().error('Pole wymagane'),
+			validation: (Rule: Rule) => Rule.required().error('Required'),
 		},
 
 		{
 			name: 'thumbnail',
 			title: 'Thumbnail',
 			type: 'image',
+			validation: (Rule: Rule) => Rule.required().error('Required'),
 		},
 
 		{
 			name: 'link',
 			title: 'Link',
 			type: 'url',
-			validation: (Rule: Rule) => Rule.required().error('Pole wymagane'),
+			validation: (Rule: Rule) => Rule.required().error('Required'),
 		},
 		{
 			name: 'github',
 			title: 'Github Link',
 			type: 'url',
-			validation: (Rule: Rule) => Rule.required().error('Pole wymagane'),
 		},
 
 		{
@@ -40,8 +40,9 @@ export const project = {
 			name: 'description',
 			title: 'Description',
 			type: 'text',
-			validation: (Rule: Rule) => Rule.max(200).error('Max 200 characters'),
+			validation: (Rule: Rule) => Rule.required().error('Required').max(200).error('Max 200 characters'),
 		},
+
 		{
 			name: 'stack',
 			title: 'Stack',

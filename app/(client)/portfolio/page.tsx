@@ -10,15 +10,17 @@ import type { Metadata } from 'next'
 import Header from '@/app/components/Header'
 import ProjectCard from '@/app/components/portfolio/ProjectCard'
 import FilterList from '@/app/components/FilterList'
+import ColorSpan from '@/app/components/ColorSpan'
 
 const getProjects = async () => {
 	const query = `
-    *[_type == "project" ]{
+    *[_type == "project"] | order(_createdAt desc) {
         title,
         thumbnail,
+		description,
+        github,
 		video,
         link,
-        github,
         stack[]->{title, image,slug},
       }`
 	const data = await client.fetch(query)
@@ -27,12 +29,12 @@ const getProjects = async () => {
 
 const getStacks = async () => {
 	const query = `
-    *[_type == "stack" ]{
-        title,
-        "slug": slug.current,
-        image,
-		
-      }`
+   *[_type == "stack" && _id in *[_type == "project"].stack[]._ref] {
+  title,
+  "slug": slug.current,
+  image,
+  "projectCount": count(*[_type == "project" && references(^._id)])
+} | order(projectCount desc)`
 	const data = await client.fetch(query)
 	return data
 }
@@ -70,10 +72,13 @@ const Portfolio = async () => {
 				</section>
 				{/* projects */}
 				<section className=' mx-auto '>
-					<div className='flex flex-col gap-24'>
+					<div className='flex flex-col gap-24 xl:gap-16'>
 						{projects.map((project, index) => (
 							<ProjectCard key={index} project={project} />
 						))}
+						<Link href='https://github.com/marekgacek45' target='_blank' rel='norefferer nofollow' className='text-center'>
+							<ColorSpan >see more on my github</ColorSpan>
+						</Link>
 					</div>
 				</section>
 			</main>
@@ -82,4 +87,3 @@ const Portfolio = async () => {
 }
 
 export default Portfolio
-
