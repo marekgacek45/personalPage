@@ -20,7 +20,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     const postUrls = posts.map((post) => ({
         url: `https://marekgacekdev.pl/blog/${post.slug}`,
-        lastModified: new Date(post.publishedAt),
+        lastModified: new Date(),
       }))
 
 	return [
