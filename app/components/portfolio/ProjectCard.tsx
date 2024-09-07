@@ -44,13 +44,13 @@ const ProjectCard = (props: { project: Project }) => {
 			<div className='flex gap-8 justify-center items-center 2xl:mr-20'>
 				{/* github */}
 				{props.project.github && (
-					<Link href={props.project.github} className='group'>
+					<Link href={props.project.github} className='group' aria-label='github'>
 						<GitHubIcon className='w-6 sm:w-10 xl:w-7 fill-black dark:fill-white group-hover:fill-ownPink-600 dark:group-hover:fill-ownPink-600 duration-150' />
 					</Link>
 				)}
 				{/* video */}
 				{props.project.video && (
-					<Link href={props.project.video} className='group'>
+					<Link href={props.project.video} className='group' aria-label='youTube'>
 						<YouTubeIcon className='w-6 sm:w-10 xl:w-7 fill-black dark:fill-white group-hover:fill-ownPink-600 dark:group-hover:fill-ownPink-600 duration-150' />
 					</Link>
 				)}

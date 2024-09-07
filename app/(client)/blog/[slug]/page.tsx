@@ -121,7 +121,7 @@ if(!post) notFound()
 						/>
 					</header>
 					{/* content */}
-					<div className=' mx-auto prose  text-fontPrimary text-lg max-w-screen-lg text-fontDark dark:text-fontLight prose-headings:text-fontDark prose-headings:dark:text-fontLight'>
+					<div className=' mx-auto prose  text-fontPrimary text-lg max-w-screen-lg   dark:prose-invert'>
 						<PortableText value={post.content} components={myPortableTextComponents} />
 					</div>
 				</article>
