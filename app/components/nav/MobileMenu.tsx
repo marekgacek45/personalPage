@@ -5,9 +5,9 @@ import NavLink from '@/app/components/nav/NavLink'
 import SocialLink from '@/app/components/nav/SocialLink'
 
 const MobileMenu = (props: {
-	links: Array<{ href: string; label: string }>
+	links: Array<{ href: string; label: string; target?: string; rel?: string }>
 	socials: Array<{ href: string; icon: any; label: string }>
-	onLinkClick?: () => void
+	onLinkClick: () => void
 }) => {
 	return (
 		<div className='fixed top-[80px] right-0 left-0 bottom-0  w-full bg-bgLight-200  dark:bg-bgDark-400   animate-fadeIn z-50'>
