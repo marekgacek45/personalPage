@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
-const NavLink = (props: { link: { href: string; label: string }; mobile?: boolean; onClick?: () => void }) => {
+const NavLink = (props: { link: { href: string; label: string,target?:string,rel?:string }; onClick: () => void; mobile?: boolean;}) => {
 	const pathname = usePathname()
 
 	const linkColor = props.mobile ? 'text-fontDark dark:text-fontLight' : 'text-fontDark dark:text-fontLight '
@@ -13,7 +13,7 @@ const NavLink = (props: { link: { href: string; label: string }; mobile?: boolea
 			className={`text-3xl sm:text-4xl xl:text-xl font-semibold  hover:text-ownPink-600 dark:hover:text-ownPink-600  duration-150 ${
 				pathname === props.link.href ? ' text-ownPurple-400 dark:text-ownYellow-400 ' : `${linkColor}  `
 			}`}>
-			<Link href={props.link.href}>{props.link.label}</Link>
+			<Link href={props.link.href} target={props.link.rel} rel={props.link.rel}  >{props.link.label}</Link>
 		</li>
 	)
 }

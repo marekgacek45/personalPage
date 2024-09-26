@@ -18,6 +18,8 @@ const navLinks = [
 	{ href: '/blog', label: 'Blog' },
 	{ href: '/portfolio', label: 'Portfolio' },
 	{ href: '/#contact', label: 'Contact' },
+	{ href: 'https://bookmarks.marekgacekdev.pl', label: 'Bookmarks',target: '_blank', rel:"noreferrer nofollow" },
+	
 ]
 
 const Navbar = () => {
@@ -46,6 +48,7 @@ const Navbar = () => {
 							{navLinks.map((link, index) => (
 								<NavLink link={link} key={index} onClick={handleLinkClick} />
 							))}
+							
 						</ul>
 					</div>
 					{/* socials & themeToggler $ hamburger */}
