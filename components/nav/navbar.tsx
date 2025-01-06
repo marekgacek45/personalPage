@@ -16,8 +16,8 @@ import { socialItems } from '@/app/utils/socials'
 
 const navLinks = [
 	{ href: 'https://blog.marekgacekdev.pl', label: 'Blog' },
-	{ href: 'https://marekgacekdev.pl/portfolio', label: 'Portfolio' },
-	{ href: 'https://marekgacekdev.pl/#kontakt', label: 'Kontakt' },
+	{ href: '/portfolio', label: 'Portfolio' },
+	{ href: '/#kontakt', label: 'Kontakt' },
 	{ href: 'https://bookmarks.marekgacekdev.pl', label: 'Bookmarks', target: '_blank' },
 ]
 
@@ -37,7 +37,7 @@ const Navbar = () => {
 					<div className='flex items-center gap-24'>
 						<Link
 							onClick={handleLinkClick}
-							href='https://marekgacekdev.pl'
+							href='/'
 							className='flex items-center gap-3 text-3xl font-heading text-ownPurple-400 dark:text-ownYellow-400 hover:text-ownPink-600 dark:hover:text-ownPink-600  duration-150'>
 							<Image src={logo} alt='Marek Gacek FullStack Developer - strony internetowe' className='w-11' />
 							Marek Gacek

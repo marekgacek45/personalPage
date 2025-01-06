@@ -1,82 +1,45 @@
-import { Project, Stack } from '@/sanity/lib/interface'
-
 import { Image } from 'next-sanity/image'
-import { urlFor } from '@/sanity/lib/image'
-import { client } from '@/sanity/lib/client'
 import Link from 'next/link'
+import { Metadata } from 'next'
+import { generateMetadata } from '@/lib/generateMetadata'
 
-import type { Metadata } from 'next'
+import { GET_ALL_PROJECTS, GET_STACKS_WITH_PROJECTS } from '@/sanity/lib/queries'
+import { Project, Stack } from '@/sanity/lib/interface'
+import { urlFor } from '@/sanity/lib/image'
 
-import Header from '@/app/components/Header'
-import ProjectCard from '@/app/components/portfolio/ProjectCard'
-import FilterList from '@/app/components/FilterList'
-import ColorSpan from '@/app/components/ColorSpan'
-
-const getProjects = async () => {
-	const query = `
-    *[_type == "project"] | order(_createdAt desc) {
-        title,
-        thumbnail,
-		description,
-        github,
-		video,
-        link,
-        stack[]->{title, image,slug},
-      }`
-	const data = await client.fetch(query)
-	return data
-}
-
-const getStacks = async () => {
-	const query = `
-   *[_type == "stack" && _id in *[_type == "project"].stack[]._ref] {
-  title,
-  "slug": slug.current,
-  image,
-  "projectCount": count(*[_type == "project" && references(^._id)])
-} | order(projectCount desc)`
-	const data = await client.fetch(query)
-	return data
-}
+import Hero from '@/components/hero'
+import FilterList from '@/components/filter-list'
+import ProjectCard from '@/components/project-card'
+import ColorSpan from '@/components/color-span'
 
 export const revalidate = 60
 
-export const metadata: Metadata = {
+export const metadata: Metadata = generateMetadata({
 	title: 'Portfolio',
 	description:
-		"Explore the portfolio of Marek Gacek, a Full Stack Developer from Poland, showcasing innovative web and software projects. Discover expertise in front-end and back-end development.",
-	openGraph: {
-		title: 'Portfolio | Marek Gacek - Web Development & Programming',
-		description:
-			"Explore the portfolio of Marek Gacek, a Full Stack Developer from Poland, showcasing innovative web and software projects. Discover expertise in front-end and back-end development.",
-		type: 'website',
-		locale: 'en_US',
-		url: 'https://marekgacekdev.pl',
-		siteName: 'Marek Gacek - FullStack Developer',
-	},
-
-
-	
-}
+		'Zapraszam do mojego portfolio – jestem Marek Gacek, programista Full Stack z Polski. Prezentuję tu innowacyjne projekty webowe i aplikacje, które łączą moją wiedzę z zakresu front-endu i back-endu.',
+	path: '/portfolio',
+})
 
 const Portfolio = async () => {
-	const projects: Project[] = await getProjects()
-	const stacks: Stack[] = await getStacks()
+	const stacks: Stack[] = await GET_STACKS_WITH_PROJECTS()
+	const projects: Project[] = await GET_ALL_PROJECTS()
 	return (
 		<>
-			<Header title='Portfolio' marqueeText='build showcase' />
-			<main className='px-6 sm:px-7 pb-20'>
+			<Hero title='Portfolio' marqueeText='sprawdź moje projekty' />
+			<div className='px-6 sm:px-7 pb-20'>
 				{/* stacks */}
 				<section className='max-w-screen-2xl mx-auto pb-16'>
-					<FilterList title='Stacks'>
+					<FilterList title='Technologia'>
 						{stacks.map((stack, index) => (
-							<Link key={index} href={`/portfolio/stack/${stack.slug}`}>
+							<Link key={`${stack.slug}-${index}`} href={`/portfolio/stack/${stack.slug}`}>
 								<Image
 									src={urlFor(stack.image).url()}
 									alt={stack.title}
 									width={120}
 									height={120}
 									className='w-[40px]  hover:scale-105 duration-150 '
+									quality={50}
 								/>
 							</Link>
 						))}
@@ -86,14 +49,18 @@ const Portfolio = async () => {
 				<section className=' mx-auto '>
 					<div className='flex flex-col gap-24 xl:gap-16'>
 						{projects.map((project, index) => (
-							<ProjectCard key={index} project={project} />
+							<ProjectCard key={`${project.title}-${index}`} project={project} />
 						))}
-						<Link href='https://github.com/marekgacek45' target='_blank' rel='norefferer nofollow' className='text-center'>
-							<ColorSpan >see more on my github</ColorSpan>
+						<Link
+							href='https://github.com/marekgacek45'
+							target='_blank'
+							rel='norefferer nofollow'
+							className='text-center'>
+							<ColorSpan>zobacz więcej na moim githubie</ColorSpan>
 						</Link>
 					</div>
 				</section>
-			</main>
+			</div>
 		</>
 	)
 }
