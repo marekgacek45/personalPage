@@ -18,7 +18,8 @@ const navLinks = [
 	{ href: 'https://blog.marekgacekdev.pl', label: 'Blog' },
 	{ href: '/portfolio', label: 'Portfolio' },
 	{ href: '/#kontakt', label: 'Kontakt' },
-	{ href: 'https://bookmarks.marekgacekdev.pl', label: 'Bookmarks', target: '_blank' },
+	{ href: 'https://bookmarks.marekgacekdev.pl', label: 'Bookmarks', blank:true},
+
 ]
 
 const Navbar = () => {
